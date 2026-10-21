@@ -20,6 +20,9 @@ public class ProductService {
     private final ProductRepository repository;
     private final CategoryRepository categoryRepository;
 
+    public List<Product> getByMaxPrice(BigDecimal maxPrice) {
+        return repository.findByMaxPrice(maxPrice);
+    }
     public ProductService(
             ProductRepository repository,
             CategoryRepository categoryRepository) {

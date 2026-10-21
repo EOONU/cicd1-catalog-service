@@ -30,3 +30,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByCategoryName(
             @Param("categoryName") String categoryName);
 }
+@Query("""
+    SELECT p
+    FROM Product p
+    WHERE p.price <= :maxPrice
+    ORDER BY p.price DESC
+    """)
+List<Product> findByMaxPrice(
+        @Param("maxPrice") BigDecimal maxPrice);

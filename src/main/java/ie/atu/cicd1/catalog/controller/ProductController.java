@@ -25,6 +25,11 @@ public class ProductController {
             @RequestParam("name") String categoryName) {
         return productService.getByCategoryName(categoryName);
     }
+    @GetMapping("/max-price")
+    public List<Product> getByMaxPrice(
+            @RequestParam("price") BigDecimal price) {
+        return productService.getByMaxPrice(price);
+    }
     @GetMapping
     public List<Product> getAll() {
         return productService.getAll();
