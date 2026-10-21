@@ -20,7 +20,11 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
-
+    @GetMapping("/by-category")
+    public List<Product> getByCategory(
+            @RequestParam("name") String categoryName) {
+        return productService.getByCategoryName(categoryName);
+    }
     @GetMapping
     public List<Product> getAll() {
         return productService.getAll();

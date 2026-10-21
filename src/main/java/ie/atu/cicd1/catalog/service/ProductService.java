@@ -27,6 +27,9 @@ public class ProductService {
         this.repository = repository;
         this.categoryRepository = categoryRepository;
     }
+    public List<Product> getByCategoryName(String categoryName) {
+        return repository.findByCategoryName(categoryName);
+    }
 
     public List<Product> getAll() {
         return repository.findAll();
