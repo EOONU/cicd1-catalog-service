@@ -6,6 +6,7 @@ import ie.atu.cicd1.catalog.repository.ProductRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -17,7 +18,9 @@ public class ProductService {
     public ProductService(ProductRepository repository) {
         this.repository = repository;
     }
-
+    public List<Product> getByMinimumPrice(BigDecimal minPrice) {
+        return repository.findByMinimumPrice(minPrice);
+    }
     public List<Product> getAll() {
         return repository.findAll();
     }
