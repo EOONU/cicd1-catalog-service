@@ -1,4 +1,11 @@
+
 package ie.atu.cicd1.catalog.dto;
 
-public class CreateProductRequest {
+import java.math.BigDecimal;
+
+public record CreateProductRequest(
+        String name,
+        BigDecimal price,
+        Long categoryId
+) {
 }
