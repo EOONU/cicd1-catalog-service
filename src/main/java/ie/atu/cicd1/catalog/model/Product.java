@@ -1,3 +1,4 @@
+
 package ie.atu.cicd1.catalog.model;
 
 import jakarta.persistence.*;
@@ -14,7 +15,12 @@ public class Product {
     private String name;
     private BigDecimal price;
 
-    public Product() {}
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public Product() {
+    }
 
     public Product(Long id, String name, BigDecimal price) {
         this.id = id;
@@ -44,5 +50,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
